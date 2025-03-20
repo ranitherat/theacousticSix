@@ -12,7 +12,7 @@ body {
     margin-top: 97px;
 }
 
-/* NAVIGATION BAR */
+/* Base Navbar */
 .navBar {
     position: fixed;
     top: 0;
@@ -29,24 +29,28 @@ body {
     box-sizing: border-box;
 }
 
-.logo {
-    font-family: "Dancing Script", "cursive";
-    font-size: 32px;
-    font-weight: bolder;
+
+/* Desktop Navigation */
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .nav-links {
     list-style: none;
     display: flex;
     gap: 20px;
+    transform: translateX(-50%);
 }
 
-.nav-links a {
-    text-decoration: none;
-    color: black;
-    padding-right: 30px;
-    font-size: 24px;
-}
+    .nav-links a {
+        text-decoration: none;
+        color: black;
+        padding-right: 30px;
+        font-size: 24px;
+    }
+
 
 .readbtn {
     background: black;
@@ -59,13 +63,30 @@ body {
     text-decoration: none;
 }
 
+
+/* Hide Hamburger on Desktop */
+.hamburger {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+
+.logo {
+    font-family: "Dancing Script", "cursive";
+    font-size: 40px;
+    font-weight: bolder;
+}
+
+
 .btn:hover {
     background-color: gray;
 }
 
 /* HOME - HERO */
 #home-hero {
-    padding-top: 50px;
+    padding-top: 0px;
     padding-left: 20px;
     padding-right: 20px;
 }
@@ -73,13 +94,13 @@ body {
 #hero {
     position: relative;
     width: 100%;
-    height: 90vh;
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     color: white;
-    padding: 20px;
+    padding: 0px;
     overflow: hidden;
     background-size: cover;
     background-position: center;
@@ -309,45 +330,76 @@ body {
 
 /* EXPLORE PAGE */
 
+#explore-start {
+    font-family: "Poppins", sans-serif;
+    padding: 50px;
+    margin: 0 auto;   
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+}
+
+#explore-start h1 {
+    font-weight: bold;
+    padding-bottom: 10px;
+    font-size: 36px;
+}
+
+#explore-start h3 {
+    font-weight: lighter;
+}
+
+#explore-start p {
+    font-size: 12px;
+}
+
 #explore {
     font-family: "Patrick Hand", cursive;
-}
-
-#explore h1 {
-    font-size: 50px;
-}
-
-#explore p {
-    font-size: 30px;
 }
 
 #e-1 h1 {
     text-align: left;
 }
 
-.e-c-l-b, .e-c-r-b {
+.e-c-l-b {
     padding: 15px;
     text-align: left;
 }
-
-.e-content-l, .e-content-r {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+.e-content-l {
     width: 100%;
     justify-content: center;
-    gap: 20px;
+    align-items: left;
+    text-align: left;
 }
 
-.e-content-r {
+.e-content-l img{
+    width: 40%;
+}
+
+.e-content-l p {
+    width: 50%;
+
+}
+
+.e-c-r-b {
+    padding: 15px;
     text-align: right;
-    align-items: right;
 }
-.e-content-l img, .e-content-r img{
+.e-content-r {
     width: 100%;
+    justify-content: center;
+    align-items: right;
+    text-align: right;
 }
 
-.e-content-l p, .e-content-r p{
-    width: 100%;
+.e-content-r img{
+    width: 40%;
+}
+
+.e-content-r p {
+    width: 50%;
 
 }
 
@@ -772,4 +824,139 @@ body {
     padding: 40px;
     font-size: 22px;
     font-family: Arial, sans-serif;
+}
+
+
+/* Hide Navigation on Mobile */
+/* Mobile Styles */
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+
+    .nav-container {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        right: 0;
+        background: white;
+        width: 100%;
+        text-align: center;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 15px 0;
+        align-items: center;
+        justify-content: center; /* Centers vertically */
+    }
+
+        .nav-container.show {
+            display: flex;
+
+        }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 5px;
+        text-align: center;
+        justify-content: center; /* Centers vertically */
+
+    }
+
+        .nav-links li {
+            margin: 10px 0;
+        }
+
+    .readbtn {
+        text-align: center;
+        align-items: center;
+        display: block;
+        margin: 10px auto; /* Centers horizontally */
+    }
+
+    #hero {
+        position: relative;
+        top: -50px; /* Adjust this as needed */
+    }
+
+
+
+
+
+
+    .hero-content {
+        position: relative;
+        z-index: 2;
+        max-width: 400px;
+        text-align: left;
+    }
+
+    #hero h1 {
+        font-size: 2rem;
+        font-weight: bold;
+        margin-bottom: 15px;
+    }
+
+    #hero p {
+        font-size: 1rem;
+        margin-bottom: 30px;
+    }
+
+    .hero-btn {
+        justify-content: left;
+        gap: 15px; /* Adjust spacing between buttons */
+        margin-top: 10px; /* Space from the text */
+        margin-left: -20px;
+    }
+
+    .book-content {
+        flex-direction: column-reverse; /* Moves image above text */
+        text-align: left;
+        max-width: 400px;
+        font-size: small;
+    }
+
+    .book-image img {
+        max-width: 80%; /* Adjust image size for better fit */
+        margin-bottom: -50px;
+        margin-top: 50px;
+    }
+    .bob-ong-content {
+        flex-direction: column; /* Ensures image is above text */
+        text-align: left;
+        max-width: 410px;
+        font-size: small;
+    }
+
+    .bon-ong-image img {
+        max-width: 80%; /* Prevents image from being too large */
+        display: block;
+        margin: 0 auto; /* Centers the image */
+        margin-top: 50px;
+    }
+
+    .page-footers,
+    .explore-footer {
+        text-align: center;
+        padding: 40px;
+        font-size: 16px;
+        font-family: Arial, sans-serif;
+    }
+
+    /* Story Quiz Section */
+    #story-quiz {
+        text-align: left;
+        padding: 20px;
+        margin-top: 10px;
+    }
+
+    #story-quiz h2 {
+        font-size: 1.8rem;
+        font-weight: bold;
+        max-width: 400px;
+        margin-bottom: -5px;
+    }
+
+    #story-quiz p {
+        font-size: 1rem;
+        margin-bottom: 20px;
+    }
 }
